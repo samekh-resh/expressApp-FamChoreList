@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CHore Planner</title>
+  <!-- <link rel="shortcut icon" href="favicon.ico">  how do we change this-->
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>family chore listr</h1>
+  <h2>running a house is difficult, here's help with divying chores. </h2>
+
+
+  <h3>Messages</h3>
+  <ul class="listOfChores">
+    <!-- <label for="who">who</label> -->
+    <!-- <label for="when">what</label> -->
+    <!-- <label for="where">where</label> -->
+    <% for(var i=0; i<listOfChores.length; i++) {%>
+      <li class="chore">
+      name: <span class='who'> <%= listOfChores[i].name %></span>
+      dueday: <span class='when'> <%=  listOfChores[i].dueday %></span>
+      what: <span class='what'> <%=  listOfChores[i].chore %></span>
+      finished?<span class='isItFinished'> <%= listOfChores[i].taskDone ? 'completed' : 'not completed' %></span>
+      <!-- finished?<span class="< %= listOfChores[i].taskDone ? 'completed' : 'notCompleted' " % > </span> -->
+
+      <span><i class="fa fa-check" aria-hidden="true"></i></span>
+      <span><i class="fa fa-times-circle" aria-hidden="true"></i></span>
+      <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+    </li>
+  <% } %>
+  </ul>
+
+  <h2>Add a message</h2>
+
+  <form action="/listOfChores" method="POST">
+    <input type="text" placeholder="name" name="name">
+    <input type="text" placeholder="chore dueday" name="dueday">
+    <input type="text" placeholder="chore " name="chore">
+    <button type="submit">Submit</button>
+  </form>
+
+  <script src="main.js"></script>
+
+</body>
+</html>

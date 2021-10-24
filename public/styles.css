@@ -1,0 +1,30 @@
+body{
+  background: beige;
+}
+h3{
+  margin-top: 40px;
+}
+
+.listOfChores{
+  border: 1px maroon dotted;
+  padding:20px;
+}
+
+.chore{
+  list-style-type: none;
+  border: 1px double red; 
+  display:flex;
+  align-items: center;
+}
+
+.what, .when, .who, .isItFinished{
+  flex:1;
+  height:40px;
+  text-align: center;
+  border: dotted darkviolet 2px;
+  margin: 5px;
+}
+
+form{
+  justify-content: center;
+}
