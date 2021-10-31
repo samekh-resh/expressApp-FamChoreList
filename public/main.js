@@ -6,10 +6,10 @@ var trash = document.getElementsByClassName("fa-trash");
 Array.from(doneCheck).forEach(function(element) {
   element.addEventListener('click', function(){
    //use query this.parentNode.querySelector('.name')
-    const name = this.parentNode.parentNode.childNodes[1].innerText
-    const dueday = this.parentNode.parentNode.childNodes[3].innerText
-    const chore = this.parentNode.parentNode.childNodes[5].innerText
-    // const task = this.parentNode.parentNode.childNodes[7].innerText
+    const name = this.parentNode.parentNode.childNodes[2].innerText
+    const dueday = this.parentNode.parentNode.childNodes[4].innerText
+    const chore = this.parentNode.parentNode.childNodes[6].innerText
+    // const taskDone = this.parentNode.parentNode.childNodes[8].innerText
     console.log(name, dueday, chore)
     fetch('listOfChoresDone', {
       method: 'put',
@@ -31,10 +31,10 @@ Array.from(doneCheck).forEach(function(element) {
 Array.from(doneCircle).forEach(function(element) {
   element.addEventListener('click', function(){
    //use query this.parentNode.querySelector('.name')
-    const name = this.parentNode.parentNode.childNodes[1].innerText
-    const dueday = this.parentNode.parentNode.childNodes[3].innerText
-    const chore = this.parentNode.parentNode.childNodes[5].innerText
-    const taskDone = this.parentNode.parentNode.childNodes[5].innerText
+    const name = this.parentNode.parentNode.childNodes[2].innerText
+    const dueday = this.parentNode.parentNode.childNodes[4].innerText
+    const chore = this.parentNode.parentNode.childNodes[6].innerText
+    const taskDone = this.parentNode.parentNode.childNodes[8].innerText
     // const task = this.parentNode.parentNode.childNodes[7].innerText
     console.log(name, dueday, chore)
     fetch('listOfChoresNotDone', {
@@ -46,7 +46,7 @@ Array.from(doneCircle).forEach(function(element) {
         'name': name,
         'dueday': dueday,
         'chore': chore,
-        'taskDone': false
+        'taskDone': true
       })
     }).then(function (response) {
       window.location.reload()
@@ -57,9 +57,12 @@ Array.from(doneCircle).forEach(function(element) {
 
 Array.from(trash).forEach(function(element) {
   element.addEventListener('click', function(){
-    const name = this.parentNode.parentNode.childNodes[1].innerText
-    const dueday = this.parentNode.parentNode.childNodes[3].innerText
-    const chore = this.parentNode.parentNode.childNodes[5].innerText
+    const name = this.parentNode.parentNode.childNodes[2].innerText
+    const dueday = this.parentNode.parentNode.childNodes[4].innerText
+    const chore = this.parentNode.parentNode.childNodes[6].innerText
+    const taskDone = this.parentNode.parentNode.childNodes[8].innerText
+    console.log(name)
+    
     fetch('listOfChores', {
       method: 'delete',
       headers: {
@@ -69,6 +72,7 @@ Array.from(trash).forEach(function(element) {
         'name': name,
         'dueday': dueday,
         'chore': chore,
+        'taskDone': taskDone
       })
     }).then(function (response) {
       window.location.reload()
